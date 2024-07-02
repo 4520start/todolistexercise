@@ -19,6 +19,21 @@
 .envにこれを書き込む  
 DATABASE_URL="postgresql://postgres.nqwiipawncayugdpeuil:SRP6940rh6wvUqQV@aws-0-ap-southeast-1.pooler.supabase.com:5432/postgres"  
 
+## やりたいこと
+
+-並べ替え（UI設置、request処理、responseをUIに反映する）
+-写真アップロード
+-編集機能
+
+CSS
+-全体的にUI変える
+
+各種項目追加
+-期限
+-優先度　色つき
+-追加した時間
+
+
 
 
 
