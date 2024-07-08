@@ -18,6 +18,11 @@ app.get("/", async (request, response) => {
         (todo) => `
           <li>
             <span>${escapeHTML(todo.title)}</span>
+            <form method="post" action="/edit" class="edit-form">
+              <input type="hidden" name="id" value="${todo.id}" />
+              <input type="text" name="name"  />
+              <button type="submit">編集</button>
+            </form>
             <form method="post" action="/delete" class="delete-form">
               <input type="hidden" name="id" value="${todo.id}" />
               <button type="submit">削除</button>
@@ -30,6 +35,8 @@ app.get("/", async (request, response) => {
   response.send(html);
 });
 
+let send = "";
+
 app.post("/create", async (request, response) => {
   await prisma.todo.create({
     data: { title: request.body.title },
@@ -40,6 +47,14 @@ app.post("/create", async (request, response) => {
 app.post("/delete", async (request, response) => {
   await prisma.todo.delete({
     where: { id: parseInt(request.body.id) },
+  });
+  response.redirect("/");
+});
+
+app.post("/edit", async (request, response) => {
+  await prisma.todo.update({
+    where: { id: parseInt(request.body.id) },
+    data: { title: request.body.name },
   });
   response.redirect("/");
 });

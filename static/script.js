@@ -7,3 +7,13 @@ for (const deleteForm of deleteForms) {
     }
   };
 }
+
+const editForms = document.querySelectorAll(".edit-form");
+
+for (const editForm of editForms) {
+  editForm.onsubmit = (e) => {
+    if (!window.confirm("本当に編集しますか？")) {
+      e.preventDefault();
+    }
+  };
+}
