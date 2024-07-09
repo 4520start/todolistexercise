@@ -12,6 +12,14 @@
     </ul>
     <form action="/create" method="post">
       <input type="text" name="title" />
+      <label for="dueDate">期限</label>
+      <input type="date" id="dueDate" name="due">
+      <label for="priority">優先度</label>
+      <select id="priority" name="priority">
+        <option value="high">高</option>
+        <option value="medium">中</option>
+        <option value="low">低</option>
+      </select>
       <button type="submit">追加</button>
     </form>
     <script src="/script.js"></script>
