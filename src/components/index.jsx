@@ -66,3 +66,61 @@ app.post("/delete", async (request, response) => {
 });
 
 app.listen(3000);
+
+
+/*
+
+index.htmlの内容、commponentsがこれを返すように変更する。
+
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>ToDoリスト</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <h1>ToDoリスト</h1>
+    <ul>
+      <!-- todos -->
+    </ul>
+    <form action="/create" method="post">
+      <input type="text" name="title" />
+      <label for="dueDate">期限</label>
+      <input type="date" id="dueDate" name="due">
+      <label for="priority">優先度</label>
+      <select id="priority" name="priority">
+        <option value="high">高</option>
+        <option value="medium">中</option>
+        <option value="low">低</option>
+      </select>
+      <button type="submit">追加</button>
+    </form>
+    <script src="/script.js"></script>
+  </body>
+</html>
+
+*/
+
+
+/*
+
+script.jsとstyle.cssの内容。これも加えるように。
+
+const deleteForms = document.querySelectorAll(".delete-form");
+
+for (const deleteForm of deleteForms) {
+  deleteForm.onsubmit = (e) => {
+    if (!window.confirm("本当に削除しますか？")) {
+      e.preventDefault();
+    }
+  };
+}
+
+
+.delete-form {
+  display: inline;
+}
+
+
+*/
